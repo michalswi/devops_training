@@ -1,0 +1,6 @@
+bento
+gitlab/.vagrant
+jenkins/.vagrant
+node/.vagrant
+server/.vagrant
+workstation/.vagrant

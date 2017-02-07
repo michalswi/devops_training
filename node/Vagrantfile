@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.define "node"
+  config.vm.hostname = "node.chef.io"
+  config.vm.provision "shell", inline: <<-SCRIPT
+    curl "https://packages.chef.io/files/stable/chefdk/1.2.20/el/7/chefdk-1.2.20-1.el7.x86_64.rpm" -o "chef.rpm"
+    rpm -ivh chef.rpm
+    echo 'root:vagrant' | chpasswd
+    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
+    systemctl restart sshd
+  SCRIPT
+  config.vm.provider "libvirt" do |l|
+    l.memory = 256
+    l.cpus = 1
+  end
+end
