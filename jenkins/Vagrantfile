@@ -24,10 +24,11 @@ Vagrant.configure("2") do |config|
     systemctl enable docker
     systemctl start docker
     groupadd docker
-    usermod -aG docker $(whoami)
+    usermod -aG docker jenkins
     #chef
     curl "https://packages.chef.io/files/stable/chefdk/1.2.20/el/7/chefdk-1.2.20-1.el7.x86_64.rpm" -o "chef.rpm"
     rpm -ivh chef.rpm
+    chef gem install kitchen-docker
     #jenkins
     yum -y install java
     yum -y install bind-utils
