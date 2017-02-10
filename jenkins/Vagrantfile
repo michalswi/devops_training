@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
     sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
     systemctl restart sshd
+    yum install -y git
     #docker
     yum install -y yum-utils
     yum-config-manager \
@@ -24,6 +25,9 @@ Vagrant.configure("2") do |config|
     systemctl start docker
     groupadd docker
     usermod -aG docker $(whoami)
+    #chef
+    curl "https://packages.chef.io/files/stable/chefdk/1.2.20/el/7/chefdk-1.2.20-1.el7.x86_64.rpm" -o "chef.rpm"
+    rpm -ivh chef.rpm
     #jenkins
     yum -y install java
     yum -y install bind-utils
