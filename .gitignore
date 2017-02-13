@@ -4,3 +4,4 @@ jenkins/.vagrant
 node/.vagrant
 server/.vagrant
 workstation/.vagrant
+multi_machine/.vagrant

@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "fed" do |fed|
+    fed.vm.box = "fedora/24-cloud-base"
+  end
+  config.vm.define "cent", primary: true do |cent|
+    cent.vm.box = "centos/7"
+  end
+end
