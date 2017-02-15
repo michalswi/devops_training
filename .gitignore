@@ -5,3 +5,4 @@ node/.vagrant
 server/.vagrant
 workstation/.vagrant
 multi_machine/.vagrant
+jenkins_test_node/.vagrant
