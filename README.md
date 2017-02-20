@@ -11,6 +11,8 @@ gitlab* + jenkins*
 - bento, related to [this one](https://github.com/chef/bento)
 - virt_py, virtualenv
 - multi_machine, related to [this one](https://www.vagrantup.com/docs/multi-machine/ )
+- kitchen_test, related to [this one](https://docs.chef.io/kitchen.html)
+- jenkins_test_node, node added to jenkins for testing purposes
 
 **docker with jenkins:**  
 ```bash
