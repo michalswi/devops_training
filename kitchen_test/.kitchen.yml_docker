@@ -1,0 +1,22 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu
+
+suites:
+  - name: default
+    run_list:
+      - recipe[kitchen_test::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
